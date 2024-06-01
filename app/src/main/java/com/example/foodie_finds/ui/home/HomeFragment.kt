@@ -42,7 +42,6 @@ class HomeFragment :  Fragment(), OnMapReadyCallback,  GoogleMap.OnMarkerClickLi
 //            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)

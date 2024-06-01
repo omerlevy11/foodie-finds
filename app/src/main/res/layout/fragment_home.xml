@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/custom_posts_fragment"
+        android:name="com.example.foodie_finds.ui.home.PostsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:ignore="MissingConstraints" />
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map_fragment"
