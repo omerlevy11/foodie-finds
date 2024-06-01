@@ -20,32 +20,27 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-class HomeFragment :  Fragment(), OnMapReadyCallback,  GoogleMap.OnMarkerClickListener {
+class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     lateinit var map: GoogleMap
-  //  private val viewModel by activityViewModels<PostViewModel>()
-    //private val locationViewModel by activityViewModels<LocationViewModel>()
-    private var currLocationMarker: Marker? = null
-    private var myLocationIcon : BitmapDescriptor? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+
+    private var currLocationMarker: Marker? = null
+    private var myLocationIcon: BitmapDescriptor? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        val homeViewModel =
-//            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
+        val mapFragment =
+            childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        //myLocationIcon = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(resources, R.drawable.my_location),200,200,false));
         return binding.root
     }
 
@@ -56,10 +51,5 @@ class HomeFragment :  Fragment(), OnMapReadyCallback,  GoogleMap.OnMarkerClickLi
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-        map.setOnMarkerClickListener(this)
-            }
-
-    override fun onMarkerClick(p0: Marker): Boolean {
-        TODO("Not yet implemented")
     }
 }
