@@ -28,7 +28,7 @@
             android:layout_height="30dp"/>
 
         <TextView
-            android:id="@+id/TitleTextView"
+            android:id="@+id/titleTextView"
             android:layout_width="371dp"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -39,7 +39,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/SignUpTitleTextView"
+            android:id="@+id/signUpTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -74,7 +74,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/btnPickImage"
+            android:id="@+id/buttonChoosePicture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
@@ -116,7 +116,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextEmailAddress"
+                android:id="@+id/editTextSignUpEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -137,7 +137,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editTextSignUpPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -171,7 +171,7 @@
             android:layout_height="10dp"/>
 
         <Button
-            android:id="@+id/SignUpButton"
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
