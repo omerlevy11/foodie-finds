@@ -12,14 +12,12 @@ import com.example.foodie_finds.activities.signup.SignUpActivity
 import com.example.foodie_finds.activities.MainActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-
-//import com.google.firebase.Firebase
-//import com.google.firebase.auth.auth
-//import com.foodie_finds.MainActivity
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class LoginActivity : AppCompatActivity() {
 
-    private var auth = {} //Firebase.auth
+    private var auth = Firebase.auth
     private lateinit var emailAddressInputLayout: TextInputLayout
     private lateinit var emailAddressEditText: TextInputEditText
     private lateinit var passwordInputLayout: TextInputLayout
@@ -29,8 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        if (auth.currentUser != null) {
-        if (false) {
+        if (auth.currentUser != null) {
             loggedInHandler()
         }
 
