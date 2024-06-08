@@ -1,4 +1,4 @@
-package com.example.foodie_finds.ui.home
+package com.example.foodie_finds.activities.posts
 
 
 import android.os.Bundle
@@ -22,7 +22,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
-abstract class PostsMapFragment : Fragment(), OnMapReadyCallback, PostsFragment.OnPostItemClickListener,
+abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,
+    PostsFragment.OnPostItemClickListener,
     GoogleMap.OnMarkerClickListener {
 
     private var _binding: FragmentHomeBinding? = null
