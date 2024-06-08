@@ -22,7 +22,7 @@ class HomeFragment : PostsMapFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View? = super.onCreateView(inflater, container, savedInstanceState)
-        viewModel.assignPosts(PostModel.instance.getMyPosts());
+       // viewModel.assignPosts(PostModel.instance.getMyPosts());
         view?.findViewById<FloatingActionButton>(R.id.fab)?.isVisible = false;
         return view;
     }
