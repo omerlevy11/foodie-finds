@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">FoodieFinds</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_posts">Post</string>
+    <string name="title_profile">Profile</string>
     <string name="text_log_in">Enter your email and password</string>
     <string name="text_email_hint">email@domain.com</string>
     <string name="text_password_hint">password</string>
