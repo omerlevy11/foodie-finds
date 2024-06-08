@@ -28,7 +28,7 @@
         android:label="CreatePostFragment" >
         <argument
             android:name="post"
-            app:argType="com.example.foodie_find.data.post.Post" />
+            app:argType="com.example.foodie_finds.data.post.Post" />
         <action
             android:id="@+id/action_create_post_to_home"
             app:destination="@id/navigation_home"

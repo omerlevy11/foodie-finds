@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs")
-    id("com.google.gms.google-services")
     id("com.google.devtools.ksp")
     id("kotlin-kapt")
 }
