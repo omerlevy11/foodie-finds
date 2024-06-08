@@ -9,9 +9,11 @@ import androidx.fragment.app.activityViewModels
 import com.example.foodie_finds.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.foodie_finds.data.post.PostModel
+import com.example.foodie_finds.activities.posts.PostViewModel
+import com.example.foodie_finds.activities.posts.PostsMapFragment
 
 
-class MyPostsFragment : PostsMapFragment() {
+class HomeFragment : PostsMapFragment() {
 
     private val viewModel by activityViewModels<PostViewModel>()
 
