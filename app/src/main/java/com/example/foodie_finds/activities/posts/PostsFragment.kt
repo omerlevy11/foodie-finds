@@ -58,6 +58,7 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
         if (view != null) {
             initViews(view)
         }
+        viewModel.assignPosts(PostModel.instance.getPosts())
         noPostText = view?.findViewById<TextView>(R.id.no_posts_text_view)!!
         setupRecyclerView()
         observePostViewModel()
