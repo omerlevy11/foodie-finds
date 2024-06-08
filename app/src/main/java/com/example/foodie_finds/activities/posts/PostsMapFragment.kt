@@ -1,5 +1,7 @@
 package com.example.foodie_finds.activities.posts
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,23 +9,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.example.foodie_finds.R
-import com.example.foodie_finds.data.post.Post
-import com.example.foodie_finds.data.post.SerializableLatLng
-import com.example.foodie_finds.databinding.FragmentHomeBinding
-import com.example.foodie_finds.viewModels.LocationViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-
-abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,
-    PostsFragment.OnPostItemClickListener,
-    GoogleMap.OnMarkerClickListener {
+import com.example.foodie_finds.R
+import com.example.foodie_finds.data.post.Post
+import com.example.foodie_finds.data.post.SerializableLatLng
+import com.example.foodie_finds.databinding.FragmentHomeBinding
+import com.example.foodie_finds.viewModels.LocationViewModel
+abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.OnPostItemClickListener,GoogleMap.OnMarkerClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -43,6 +43,7 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        myLocationIcon = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(resources, R.drawable.my_location),200,200,false));
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
