@@ -38,7 +38,6 @@ class CreatePostFragment : Fragment() {
     private lateinit var spinner: ProgressBar
     private lateinit var attachPictureButton: ImageButton
     private lateinit var submitButton: MaterialButton
-    private lateinit var countryCode: String
     private var attachedPicture: Uri = Uri.EMPTY
     private var imageView: ImageView? = null
     private val auth = Firebase.auth
@@ -68,9 +67,7 @@ class CreatePostFragment : Fragment() {
         val geocoder = context?.let { Geocoder(it, Locale.getDefault()) }
         val addresses =
             geocoder?.getFromLocation(args.post.position.latitude, args.post.position.longitude, 1)
-        if (addresses?.size!! > 0) {
-            countryCode = addresses[0].countryCode
-        } else {
+        if (addresses?.size!! == 0) {
             findNavController().popBackStack()
         }
     }
@@ -138,7 +135,6 @@ class CreatePostFragment : Fragment() {
                 postId,
                 it.uid,
                 description.text.toString(),
-                countryCode,
                 SerializableLatLng(args.post.position.latitude, args.post.position.longitude),
             )
         }
