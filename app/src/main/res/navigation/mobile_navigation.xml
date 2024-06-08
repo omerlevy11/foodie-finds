@@ -22,4 +22,10 @@
         android:name="com.example.foodie_finds.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/PostsFragment"
+        android:name="com.example.foodie_finds.ui.home.PostsFragment"
+        android:label="Posts Fragment"
+        tools:layout="@layout/posts_list_fragment">
+    </fragment>
 </navigation>
