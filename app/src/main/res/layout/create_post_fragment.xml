@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top|start"
-            android:hint="@string/describe_your_trip"
+            android:hint="@string/describe_your_food"
             android:inputType="textMultiLine"
             android:lines="4"
             android:maxLines="10"

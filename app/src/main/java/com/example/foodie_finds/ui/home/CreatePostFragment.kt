@@ -1,7 +1,6 @@
 package com.example.foodie_finds.ui.home
 
 import android.location.Geocoder
-import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -39,7 +38,6 @@ class CreatePostFragment : Fragment() {
     private lateinit var spinner: ProgressBar
     private lateinit var attachPictureButton: ImageButton
     private lateinit var submitButton: MaterialButton
-    private lateinit var deviceLocation: Location
     private lateinit var countryCode: String
     private var attachedPicture: Uri = Uri.EMPTY
     private var imageView: ImageView? = null
