@@ -18,9 +18,9 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_posts"
-        android:name="com.example.foodie_finds.ui.home.PostsFragment"
+        android:name="com.example.foodie_finds.ui.home.HomeFragment"
         android:label="Posts Fragment"
-        tools:layout="@layout/posts_fragment">
+        tools:layout="@layout/posts_list_fragment">
     </fragment>
     <fragment
         android:id="@+id/navigation_create_post"
@@ -35,24 +35,28 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
+
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.foodie_finds.ui.profile.ProfileFragment"
-        android:label="Posts Fragment"
-        tools:layout="@layout/profile_fragment">
+        android:name="com.example.foodie_finds.activities.profile.Profile"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_profile_to_edit_profile"
-            app:destination="@id/navigation_edit_profile"
+            android:id="@+id/action_profile_to_MyPosts"
+            app:destination="@id/navigation_posts" />
+        <action
+            android:id="@+id/action_profile_to_editMyProfile"
+            app:destination="@id/editMyProfile"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_edit_profile"
-        android:name="com.example.foodie_finds.ui.profile.EditProfileFragment"
+        android:id="@+id/editMyProfile"
+        android:name="com.example.foodie_finds.activities.profile.EditMyProfile"
         android:label="edit my profile"
-        tools:layout="@layout/edit_profile_fragment">
+        tools:layout="@layout/fragment_edit_my_profile">
         <action
-            android:id="@+id/action_edit_profile_to_profile"
+            android:id="@+id/action_editMyProfile_to_profile"
             app:destination="@id/navigation_profile"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
