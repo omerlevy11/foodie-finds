@@ -17,7 +17,7 @@
             android:layout_height="20dp"/>
 
         <ImageView
-            android:id="@+id/backImageView"
+            android:id="@+id/backToLogIn"
             android:contentDescription="@string/text_back_icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -87,7 +87,7 @@
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutFirstName"
+            android:id="@+id/layoutUserName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:hint="@string/text_user_name"
@@ -95,7 +95,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextFirstName"
+                android:id="@+id/editTextUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -108,7 +108,7 @@
             android:layout_height="10dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutEmailAddress"
+            android:id="@+id/layoutSignUpEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:hint="@string/text_email_hint"
@@ -137,7 +137,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextSignUpPassword"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"

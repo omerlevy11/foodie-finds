@@ -32,10 +32,8 @@ class SignUpActivity : ComponentActivity() {
 
     private lateinit var imageSelectionCallBack: ActivityResultLauncher<Intent>
     private var selectedImageURI: Uri? = null
-    private lateinit var firstNameInputLayout: TextInputLayout
-    private lateinit var firstNameEditText: TextInputEditText
-    private lateinit var lastNameInputLayout: TextInputLayout
-    private lateinit var lastNameEditText: TextInputEditText
+    private lateinit var userNameInputLayout: TextInputLayout
+    private lateinit var userNameEditText: TextInputEditText
     private lateinit var emailAddressInputLayout: TextInputLayout
     private lateinit var emailAddressEditText: TextInputEditText
     private lateinit var passwordInputLayout: TextInputLayout
@@ -48,7 +46,7 @@ class SignUpActivity : ComponentActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_signup)
 
         defineImageSelectionCallBack()
         openGallery()
@@ -57,26 +55,23 @@ class SignUpActivity : ComponentActivity() {
     }
 
     private fun createNewUser() {
-        firstNameInputLayout = findViewById(R.id.layoutFirstName)
-        firstNameEditText = findViewById(R.id.editTextFirstName)
-        lastNameInputLayout = findViewById(R.id.layoutLastName)
-        lastNameEditText = findViewById(R.id.editTextLastName)
-        emailAddressInputLayout = findViewById(R.id.layoutEmailAddress)
-        emailAddressEditText = findViewById(R.id.editTextEmailAddress)
+        userNameInputLayout = findViewById(R.id.layoutUserName)
+        userNameEditText = findViewById(R.id.editTextUserName)
+        emailAddressInputLayout = findViewById(R.id.layoutSignUpEmailAddress)
+        emailAddressEditText = findViewById(R.id.editTextSignUpEmailAddress)
         passwordInputLayout = findViewById(R.id.layoutPassword)
         passwordEditText = findViewById(R.id.editTextPassword)
         confirmPasswordInputLayout = findViewById(R.id.layoutConfirmPassword)
         confirmPasswordEditText = findViewById(R.id.editTextConfirmPassword)
 
-        findViewById<Button>(R.id.SignUpButton).setOnClickListener {
-            val firstName = firstNameEditText.text.toString().trim()
-            val lastName = lastNameEditText.text.toString().trim()
+        findViewById<Button>(R.id.signUpButton).setOnClickListener {
+            val userName = userNameEditText.text.toString().trim()
             val email = emailAddressEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
             val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
             val syntaxChecksResult =
-                validateUserRegistration(firstName, lastName, email, password, confirmPassword)
+                validateUserRegistration(userName, email, password, confirmPassword)
 
             if (syntaxChecksResult) {
                 auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
@@ -84,13 +79,13 @@ class SignUpActivity : ComponentActivity() {
 
                     val profileUpdates = UserProfileChangeRequest.Builder()
                         .setPhotoUri(selectedImageURI)
-                        .setDisplayName("$firstName $lastName")
+                        .setDisplayName(userName)
                         .build()
 
                     authenticatedUser.updateProfile(profileUpdates)
 
                     UserModel.instance.addUser(
-                        User(authenticatedUser.uid, firstName, lastName),
+                        User(authenticatedUser.uid, userName),
                         selectedImageURI!!
                     ) {
                         Toast.makeText(
@@ -115,7 +110,7 @@ class SignUpActivity : ComponentActivity() {
     }
 
     private fun toLoginActivity() {
-        findViewById<TextView>(R.id.LogInTextView).setOnClickListener {
+        findViewById<TextView>(R.id.backToLogIn).setOnClickListener {
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -123,23 +118,16 @@ class SignUpActivity : ComponentActivity() {
     }
 
     private fun validateUserRegistration(
-        firstName: String,
-        lastName: String,
+        userName: String,
         email: String,
         password: String,
         confirmPassword: String
     ): Boolean {
-        if (firstName.isEmpty()) {
-            firstNameInputLayout.error = "First name cannot be empty"
+        if (userName.isEmpty()) {
+            userNameInputLayout.error = "User name cannot be empty"
             return false
         } else {
-            firstNameInputLayout.error = null
-        }
-        if (lastName.isEmpty()) {
-            lastNameInputLayout.error = "Last name cannot be empty"
-            return false
-        } else {
-            lastNameInputLayout.error = null
+            userNameInputLayout.error = null
         }
         if (email.isEmpty()) {
             emailAddressInputLayout.error = "Email cannot be empty"
@@ -163,10 +151,10 @@ class SignUpActivity : ComponentActivity() {
             passwordInputLayout.error = null
         }
         if (confirmPassword.isEmpty()) {
-            confirmPasswordInputLayout.error = "Confirm password cannot be empty"
+            confirmPasswordInputLayout.error = "Please confirm your password"
             return false
         } else if (password != confirmPassword) {
-            confirmPasswordInputLayout.error = "Passwords do not match."
+            confirmPasswordInputLayout.error = "Passwords do not match"
             return false
         } else {
             confirmPasswordInputLayout.error = null
@@ -184,7 +172,7 @@ class SignUpActivity : ComponentActivity() {
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     private fun openGallery() {
-        findViewById<Button>(R.id.btnPickImage).setOnClickListener {
+        findViewById<Button>(R.id.buttonChoosePicture).setOnClickListener {
             val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
             println(intent)
             imageSelectionCallBack.launch(intent)
