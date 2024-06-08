@@ -12,7 +12,7 @@
         android:layout_height="80dp"/>
 
     <TextView
-        android:id="@+id/TitleTextView"
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -27,7 +27,7 @@
         android:layout_height="50dp"/>
 
     <TextView
-        android:id="@+id/LogInTitleTextView"
+        android:id="@+id/logInTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -43,7 +43,7 @@
         android:layout_height="5dp"/>
 
     <TextView
-        android:id="@+id/LogInTextView"
+        android:id="@+id/logInTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -66,7 +66,7 @@
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextEmailAddress"
+            android:id="@+id/editTextLogInEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -86,7 +86,7 @@
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editTextLogInPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -99,7 +99,7 @@
         android:layout_height="20dp"/>
 
     <Button
-        android:id="@+id/LogInButton"
+        android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/log_in"
@@ -110,7 +110,7 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/SignUpButton"
+        android:id="@+id/moveToSignUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_sign_up_link"
@@ -121,7 +121,7 @@
         android:textAllCaps="false" />
 
     <TextView
-        android:id="@+id/ForgotPassTextView"
+        android:id="@+id/forgotPassTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_forgot_password_link"

@@ -40,6 +40,13 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.7.4"))
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.3")
+    implementation("com.google.firebase:firebase-common-ktx:20.4.2")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-storage")
     implementation(libs.androidx.core.ktx)
     implementation("com.github.bumptech.glide:glide:4.12.0")
     kapt("com.github.bumptech.glide:compiler:4.9.0")
