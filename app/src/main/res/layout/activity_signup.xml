@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -86,6 +85,15 @@
             android:textColor="#427CDC"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/text_user_name_caps"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.Material.Display1"
+            android:textColor="@color/black" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutUserName"
             android:layout_width="match_parent"
@@ -106,6 +114,15 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/text_email"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.Material.Display1"
+            android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutSignUpEmailAddress"
@@ -128,6 +145,15 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
 
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Passward"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.Material.Display1"
+            android:textColor="@color/black" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutPassword"
             android:layout_width="match_parent"
@@ -148,6 +174,15 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Repeat Passward"
+            android:textStyle="bold"
+            android:textAppearance="@android:style/TextAppearance.Material.Display1"
+            android:textColor="@color/black" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutConfirmPassword"

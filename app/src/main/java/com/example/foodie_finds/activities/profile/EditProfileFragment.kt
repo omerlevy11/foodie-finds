@@ -18,13 +18,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.foodie_finds.R
-import com.example.foodie_finds.databinding.FragmentEditMyProfileBinding
+import com.example.foodie_finds.databinding.FragmentEditProfileBinding
 import com.squareup.picasso.Picasso
 
-class EditMyProfile : Fragment() {
-    private var _binding: FragmentEditMyProfileBinding? = null
+class EditProfileFragment : Fragment() {
+    private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: EditMyProfileViewModel
+    private lateinit var viewModel: EditProfileViewModel
 
     private val imageSelectionLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -41,7 +41,7 @@ class EditMyProfile : Fragment() {
                 } else {
                     viewModel.selectedImageURI.postValue(imageUri)
                     viewModel.imageChanged = true
-                    binding.ProfileImageView.setImageURI(imageUri)
+                    binding.editProfileImageView.setImageURI(imageUri)
                 }
             } catch (e: Exception) {
                 Log.d("EditMyPost", "Error: $e")
@@ -56,10 +56,10 @@ class EditMyProfile : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentEditMyProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        viewModel = ViewModelProvider(this)[EditMyProfileViewModel::class.java]
+        viewModel = ViewModelProvider(this)[EditProfileViewModel::class.java]
 
         initFields()
         defineUpdateButtonClickListener()
@@ -70,17 +70,17 @@ class EditMyProfile : Fragment() {
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     private fun definePickImageClickListener() {
-        binding.btnPickImage.setOnClickListener {
+        binding.buttonEditProfilePicture.setOnClickListener {
             defineImageSelectionCallBack()
         }
     }
 
     private fun defineUpdateButtonClickListener() {
-        binding.updateButton.setOnClickListener {
-            binding.updateButton.isClickable = false
+        binding.editProfileButton.setOnClickListener {
+            binding.editProfileButton.isClickable = false
             viewModel.updateUser {
                 findNavController().navigate(R.id.action_editMyProfile_to_profile)
-                binding.updateButton.isClickable = true
+                binding.editProfileButton.isClickable = true
             }
         }
     }
@@ -88,29 +88,21 @@ class EditMyProfile : Fragment() {
     private fun initFields() {
         viewModel.loadUser()
 
-        binding.editTextFirstName.addTextChangedListener {
-            viewModel.firstName = it.toString().trim()
-        }
-        binding.editTextLastName.addTextChangedListener {
-            viewModel.lastName = it.toString().trim()
+        binding.editTextEditUserName.addTextChangedListener {
+            viewModel.userName = it.toString().trim()
         }
 
         viewModel.user.observe(viewLifecycleOwner) { user ->
-            binding.editTextFirstName.setText(user.firstName)
-            binding.editTextLastName.setText(user.lastName)
+            binding.editTextEditUserName.setText(user.userName)
         }
 
         viewModel.selectedImageURI.observe(viewLifecycleOwner) { uri ->
-            Picasso.get().load(uri).into(binding.ProfileImageView)
+            Picasso.get().load(uri).into(binding.editProfileImageView)
         }
 
-        viewModel.firstNameError.observe(viewLifecycleOwner) {
+        viewModel.userNameError.observe(viewLifecycleOwner) {
             if (it.isNotEmpty())
-                binding.editTextFirstName.error = it
-        }
-        viewModel.lastNameError.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty())
-                binding.editTextLastName.error = it
+                binding.editTextEditUserName.error = it
         }
     }
 
@@ -122,7 +114,7 @@ class EditMyProfile : Fragment() {
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     private fun defineImageSelectionCallBack() {
-        binding.btnPickImage.setOnClickListener {
+        binding.buttonEditProfilePicture.setOnClickListener {
             val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
             imageSelectionLauncher.launch(intent)
         }
