@@ -11,17 +11,21 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.foodie_finds.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.foodie_finds.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/createPostFragment"
+        android:name="com.example.foodie_finds.ui.home.CreatePostFragment"
+        android:label="CreatePostFragment" >
+        <argument
+            android:name="post"
+            app:argType="com.example.foodie_finds.data.post.Post" />
+    </fragment>
+
+    <action
+        android:id="@+id/to_createPostFragment"
+        app:destination="@id/createPostFragment" />
+
     <fragment
         android:id="@+id/PostsFragment"
         android:name="com.example.foodie_finds.activities.posts.PostsFragment"

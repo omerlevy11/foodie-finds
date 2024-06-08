@@ -1,6 +1,5 @@
 package com.example.foodie_finds.activities.posts
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

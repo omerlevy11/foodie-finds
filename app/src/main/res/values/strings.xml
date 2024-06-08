@@ -16,4 +16,9 @@
     <string name="text_repeat_password">repeat password</string>
     <string name="text_back_icon">back icon</string>
     <string name="text_image_placeholder">image placeholder</string>
+    <string name="submit">Submit</string>
+    <string name="upload_picture">Upload Picture</string>
+    <string name="describe_your_food">Describe your food</string>
+    <string name="home">Home</string>
+    <string name="select_image">selectImage</string>
 </resources>
