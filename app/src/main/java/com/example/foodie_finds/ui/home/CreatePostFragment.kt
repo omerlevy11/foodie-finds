@@ -51,7 +51,7 @@ class CreatePostFragment : Fragment() {
         container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         view = inflater.inflate(
-            R.layout.create_post_fragment, container, false
+            R.layout.fragment_create_post, container, false
         )
 
         getDeviceLocation()
@@ -59,7 +59,7 @@ class CreatePostFragment : Fragment() {
         handleSubmitButton()
         handleAttachProductPicture()
 
-        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = false;
+        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = false
 
         return view
     }
@@ -125,7 +125,7 @@ class CreatePostFragment : Fragment() {
             return
         }
 
-        var postId: String;
+        val postId: String
 
         if (args.post.id.isNotEmpty()) {
             postId = args.post.id
@@ -185,6 +185,6 @@ class CreatePostFragment : Fragment() {
 
     override fun onDestroyView(){
         super.onDestroyView()
-        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = true;
+        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = true
     }
 }

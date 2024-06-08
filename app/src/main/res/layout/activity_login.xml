@@ -57,6 +57,15 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"/>
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="@string/text_email"
+        android:textStyle="bold"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/black" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutLogInEmailAddress"
         android:layout_width="match_parent"
@@ -76,6 +85,15 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="10dp"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="Passward"
+        android:textStyle="bold"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textColor="@color/black" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutLogInPassword"

@@ -10,16 +10,14 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.auth
 
-class EditMyProfileViewModel : ViewModel() {
+class EditProfileViewModel : ViewModel() {
     val userId = Firebase.auth.currentUser!!.uid
     var imageChanged = false
     var selectedImageURI: MutableLiveData<Uri> = MutableLiveData()
     var user: LiveData<User> = UserModel.instance.getCurrentUser()
 
-    var firstName: String? = null
-    var lastName: String? = null
-    var firstNameError = MutableLiveData("")
-    var lastNameError = MutableLiveData("")
+    var userName: String? = null
+    var userNameError = MutableLiveData("")
 
     fun loadUser() {
         UserModel.instance.getUserImage(userId) {
@@ -33,14 +31,13 @@ class EditMyProfileViewModel : ViewModel() {
         if (validateUserUpdate()) {
             val updatedUser = User(
                 userId,
-                firstName!!,
-                lastName!!
+                userName!!
             )
 
             UserModel.instance.updateUser(updatedUser) {
                 val profileUpdates = UserProfileChangeRequest.Builder()
                     .setPhotoUri(selectedImageURI.value!!)
-                    .setDisplayName("$firstName $lastName")
+                    .setDisplayName(userName)
                     .build()
 
                 Firebase.auth.currentUser!!.updateProfile(profileUpdates).addOnSuccessListener {
@@ -58,12 +55,8 @@ class EditMyProfileViewModel : ViewModel() {
 
     private fun validateUserUpdate(
     ): Boolean {
-        if (firstName!!.isEmpty()) {
-            firstNameError.postValue("First name cannot be empty")
-            return false
-        }
-        if (lastName!!.isEmpty()) {
-            lastNameError.postValue("Last name cannot be empty")
+        if (userName!!.isEmpty()) {
+            userNameError.postValue("First name cannot be empty")
             return false
         }
         return true

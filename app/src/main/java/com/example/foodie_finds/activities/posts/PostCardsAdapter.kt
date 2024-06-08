@@ -19,8 +19,8 @@ import com.google.firebase.auth.auth
 
 class PostCardsAdapter(private val posts: List<Post>, private val users: List<User>) :
     RecyclerView.Adapter<PostCardsAdapter.PostViewHolder>() {
-    private var onPostItemClickListener: OnPostItemClickListener? = null;
-    private val userId = Firebase.auth.uid;
+    private var onPostItemClickListener: OnPostItemClickListener? = null
+    private val userId = Firebase.auth.uid
     interface OnPostItemClickListener {
         fun onPostItemClicked(
             postId : String
@@ -59,13 +59,13 @@ class PostCardsAdapter(private val posts: List<Post>, private val users: List<Us
             .load(post.photo)
             .into(holder.image)
         holder.image.contentDescription = post.description
-        holder.user.text = "${user?.firstName} ${user?.lastName}"
+        holder.user.text = "${user?.userName}"
         holder.description.text = post.description
 
         holder.deleteBtn.isVisible = post.userId == userId
         holder.editBtn.isVisible = post.userId == userId
 
-        handleClicksCard(holder, position);
+        handleClicksCard(holder, position)
     }
 
     fun setOnPostItemClickListener(listener: PostsFragment) {
