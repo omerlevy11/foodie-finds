@@ -27,7 +27,7 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    lateinit var map: GoogleMap
+    private lateinit var map: GoogleMap
     private val viewModel by activityViewModels<PostViewModel>()
     private val locationViewModel by activityViewModels<LocationViewModel>()
     private var currLocationMarker: Marker? = null
@@ -43,7 +43,7 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        myLocationIcon = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(resources, R.drawable.my_location),200,200,false));
+        myLocationIcon = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(resources, R.drawable.my_location),200,200,false))
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         map = googleMap
         map.setOnMarkerClickListener(this)
         map.setOnMapLongClickListener {
-            val tempPost = Post("", "", "", "", SerializableLatLng.fromGoogleLatLng(it))
+            val tempPost = Post("", "", "", SerializableLatLng.fromGoogleLatLng(it))
             //   val action = CountryPageFragmentDirections.toCreatePostFragment(tempPost)
             // findNavController().navigate(action)
         }
@@ -100,6 +100,6 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(clickedMarker.position, 9f))
         binding.customPostsFragment.getFragment<PostsFragment>()
             .onMarkerClicked(clickedMarker.tag.toString())
-        return true;
+        return true
     }
 }

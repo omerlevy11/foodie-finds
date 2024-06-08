@@ -18,7 +18,7 @@ class PostModel private constructor() {
     private var postsExecutor = Executors.newSingleThreadExecutor()
     private val firebaseModel = PostFirebaseModel()
     private val posts: LiveData<MutableList<Post>>? = null
-    val postsListLoadingState: MutableLiveData<LoadingState> =
+    private val postsListLoadingState: MutableLiveData<LoadingState> =
         MutableLiveData(LoadingState.LOADED)
 
 
@@ -26,9 +26,9 @@ class PostModel private constructor() {
         val instance: PostModel = PostModel()
     }
 
-    fun getCountryPosts(countryCode: String): LiveData<MutableList<Post>> {
+    fun getPosts(): LiveData<MutableList<Post>> {
         refreshPosts()
-        return posts ?: database.postDao().getCountryPosts(countryCode)
+        return posts ?: database.postDao().getPosts()
     }
 
     fun getMyPosts(): LiveData<MutableList<Post>> {

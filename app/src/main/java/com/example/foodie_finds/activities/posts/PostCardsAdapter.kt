@@ -31,15 +31,11 @@ class PostCardsAdapter(private val posts: List<Post>, private val users: List<Us
         fun onPostEditClicked(
             post : Post
         )
-        fun onPostCountryClicked(
-            countryName : String
-        )
     }
 
     class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.card_image)
         val user: TextView = itemView.findViewById(R.id.card_user)
-        val countryImage: ImageButton = itemView.findViewById(R.id.country_image)
         val description: TextView = itemView.findViewById(R.id.card_description)
         val card: CardView = itemView.findViewById(R.id.card)
         val deleteBtn : ImageButton = itemView.findViewById(R.id.delete_button)
@@ -82,9 +78,6 @@ class PostCardsAdapter(private val posts: List<Post>, private val users: List<Us
         }
         holder.editBtn.setOnClickListener {
             onPostItemClickListener?.onPostEditClicked(post)
-        }
-        holder.countryImage.setOnClickListener {
-            onPostItemClickListener?.onPostCountryClicked(post.country)
         }
     }
 

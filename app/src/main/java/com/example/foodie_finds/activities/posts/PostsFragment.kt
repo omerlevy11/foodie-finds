@@ -26,39 +26,39 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
         fun onPostItemClicked(postId: String)
     }
 
-    fun observePostViewModel(
+    private fun observePostViewModel(
         recyclerView: RecyclerView,
         posts: LiveData<MutableList<Post>>?,
         users: LiveData<MutableList<User>>?
     ) {
         posts?.observe(viewLifecycleOwner) { currPosts: List<Post> ->
-            if (currPosts.size > 0) {
-                noPostText.isVisible = false;
-                recyclerView.isVisible = true;
+            if (currPosts.isNotEmpty()) {
+                noPostText.isVisible = false
+                recyclerView.isVisible = true
                 users?.observe(viewLifecycleOwner) { currUsers: List<User> ->
-                    val postCardsAdapter = PostCardsAdapter(currPosts, currUsers);
+                    val postCardsAdapter = PostCardsAdapter(currPosts, currUsers)
                     postCardsAdapter.setOnPostItemClickListener(this)
                     recyclerView.adapter = postCardsAdapter
                 }
             } else {
-                noPostText.isVisible = true;
-                recyclerView.isVisible = false;
+                noPostText.isVisible = true
+                recyclerView.isVisible = false
             }
         }
     }
-    fun getLayoutResourceId(): Int {
+    private fun getLayoutResourceId(): Int {
         return R.layout.posts_list_fragment
     }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View? = inflater.inflate(getLayoutResourceId(), container, false)
         if (view != null) {
             initViews(view)
         }
-        noPostText = view?.findViewById<TextView>(R.id.no_posts_text_view)!!;
+        noPostText = view?.findViewById<TextView>(R.id.no_posts_text_view)!!
         setupRecyclerView()
         observePostViewModel()
         return view
@@ -89,7 +89,7 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
         viewModel.posts.value?.let { posts ->
             val post = posts.firstOrNull { it.id == postId }
             if ( post != null) {
-                PostModel.instance.deletePost(post) {};
+                PostModel.instance.deletePost(post) {}
             }
         }
     }
@@ -104,13 +104,6 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
 
     }
 
-    override fun onPostCountryClicked(countryCode : String) {
-//        val navController = findNavController()
-//        if (navController.currentDestination?.id != R.id.CountryPageFragment) {
-//            val action = PostsFragmentDirections.postCountryToCountryPageFragment(countryCode);
-//            findNavController().navigate(action)
-//        }
-    }
     fun onMarkerClicked(postId: String) {
         val index = viewModel.posts.value?.indexOfFirst { post -> post.id == postId }
         if (index != null) {
