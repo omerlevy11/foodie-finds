@@ -23,11 +23,29 @@
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".activities.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/log_in"
+            android:theme="@style/Theme.FoodieFinds">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.signup.SignUpActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FoodieFinds" />
+<!--        <activity-->
+<!--            android:name=".activities.forgot-password.ForgotPasswordActivity"-->
+<!--            android:exported="true"-->
+<!--            android:theme="@style/Theme.FoodieFinds" />-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCFZA4zakv-y2YEsQF2nQuWtAyXxM9UCTM" />
