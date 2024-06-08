@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import com.example.foodie_finds.R
+import com.example.foodie_finds.activities.posts.PostViewModel
+import com.example.foodie_finds.activities.posts.PostsMapFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.example.foodie_finds.data.post.PostModel
 

@@ -29,7 +29,7 @@ class UserModel private constructor() {
         return database.userDao().getUserById(Firebase.auth.currentUser?.uid!!)
     }
 
-    fun refreshAllUsers() {
+    private fun refreshAllUsers() {
         val lastUpdated: Long = User.lastUpdated
 
         firebaseModel.getAllUsers(lastUpdated) { list ->
@@ -67,7 +67,7 @@ class UserModel private constructor() {
     }
 
     fun getUserImage(imageId: String, callback: (Uri) -> Unit) {
-        firebaseModel.getImage(imageId, callback);
+        firebaseModel.getImage(imageId, callback)
     }
 
     fun addUser(user: User, selectedImageUri: Uri, callback: () -> Unit) {

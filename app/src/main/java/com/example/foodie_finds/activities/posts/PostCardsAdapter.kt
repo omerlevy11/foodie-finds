@@ -1,4 +1,4 @@
-package com.example.foodie_finds.ui.home
+package com.example.foodie_finds.activities.posts
 
 import android.view.LayoutInflater
 import android.view.View

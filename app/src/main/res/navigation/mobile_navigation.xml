@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/PostsFragment"
-        android:name="com.example.foodie_finds.ui.home.PostsFragment"
+        android:name="com.example.foodie_finds.activities.posts.PostsFragment"
         android:label="Posts Fragment"
         tools:layout="@layout/posts_list_fragment">
     </fragment>
