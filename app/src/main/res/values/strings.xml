@@ -1,6 +1,19 @@
 <resources>
-    <string name="app_name">foodie-finds</string>
+    <string name="app_name">FoodieFinds</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="text_log_in">Enter your email and password</string>
+    <string name="text_email_hint">email@domain.com</string>
+    <string name="text_password_hint">password</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="button_sign_up_link">Click here to sign up</string>
+    <string name="button_forgot_password_link">forgot password?</string>
+    <string name="text_create_account">Create an account</string>
+    <string name="text_choose_profile_pic">Choose profile picture</string>
+    <string name="text_user_name">user name</string>
+    <string name="text_repeat_password">repeat password</string>
+    <string name="text_back_icon">back icon</string>
+    <string name="text_image_placeholder">image placeholder</string>
 </resources>
