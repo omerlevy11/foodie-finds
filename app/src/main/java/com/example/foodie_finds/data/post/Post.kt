@@ -45,7 +45,6 @@ data class Post(
     val id: String,
     val userId: String,
     val description: String,
-    val country: String,
     @TypeConverters(LatLngConverter::class)
     val position: SerializableLatLng, // Use SerializableLatLng instead of LatLng
     var isDeleted: Boolean = false,
@@ -71,7 +70,6 @@ data class Post(
         const val USER_ID_KEY = "userId"
         const val LAST_UPDATED_KEY = "timestamp"
         const val DESCRIPTION_KEY = "description"
-        const val COUNTRY_KEY = "country"
         const val IS_DELETED_KEY = "is_deleted"
         const val POSITION_KEY = "position"
         private const val POST_LAST_UPDATED = "post_last_updated"
@@ -79,7 +77,6 @@ data class Post(
         fun fromJSON(json: Map<String, Any>): Post {
             val id = json[ID_KEY] as? String ?: ""
             val description = json[DESCRIPTION_KEY] as? String ?: ""
-            val country = json[COUNTRY_KEY] as? String ?: ""
             val isDeleted = json[IS_DELETED_KEY] as? Boolean ?: false
             val userId = json[USER_ID_KEY] as? String ?: ""
 
@@ -88,7 +85,7 @@ data class Post(
             val longitude = positionJson?.get("longitude") ?: 0.0
             val position = SerializableLatLng(latitude, longitude)
 
-            val post = Post(id, userId, description, country,position, isDeleted)
+            val post = Post(id, userId, description, position, isDeleted)
 
             val timestamp: Timestamp? = json[LAST_UPDATED_KEY] as? Timestamp
             timestamp?.let {
@@ -106,7 +103,6 @@ data class Post(
                 USER_ID_KEY to userId,
                 LAST_UPDATED_KEY to FieldValue.serverTimestamp(),
                 DESCRIPTION_KEY to description,
-                COUNTRY_KEY to country,
                 IS_DELETED_KEY to isDeleted,
                 POSITION_KEY to position
             )

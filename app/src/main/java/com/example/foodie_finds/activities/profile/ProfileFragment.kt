@@ -19,7 +19,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.storage.storage
 import com.squareup.picasso.Picasso
 
-class Profile : Fragment() {
+class ProfileFragment : Fragment() {
 
     private lateinit var root: View
     private var auth = Firebase.auth
