@@ -84,7 +84,8 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
 //                ).icon(myLocationIcon)
 //            )!!
             posts.forEach { post ->
-                val marker = map.addMarker(MarkerOptions().position(post.position.toGoogleLatLng()))
+                val bd = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)
+                val marker = map.addMarker(MarkerOptions().icon(bd).position(post.position.toGoogleLatLng()))
                 if (marker != null) {
                     marker.tag = post.id
                 }
