@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,15 +11,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
-
-    <ImageView
-        android:id="@+id/ProfileImageView"
-        android:contentDescription="@string/text_image_placeholder"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/profile_pic_placeholder" />
+        android:layout_height="10dp" />
 
     <TextView
         android:id="@+id/UserNameTextView"
@@ -27,8 +20,35 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="350dp"
+        app:cardBackgroundColor="@color/white">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="350dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:contentDescription="@string/text_image_placeholder"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/profile_pic_placeholder"
+                android:scaleType="centerCrop"/>
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <Space
         android:layout_width="match_parent"
@@ -40,39 +60,42 @@
         android:layout_height="wrap_content"
         android:text="My Posts"
         android:textAlignment="viewStart"
-        android:backgroundTint="#00BFFF"
+        android:backgroundTint="@color/blue"
         android:textSize="20sp"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/baseline_black_arrow_forward" />
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:drawableEnd="@drawable/ic_arrow_forward_white" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/EditMyProfileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit My Profile"
-        android:textAlignment="viewStart"
-        android:backgroundTint="#00BFFF"
+        android:text="Edit Profile"
+        android:backgroundTint="@color/blue"
         android:textSize="20sp"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/baseline_black_arrow_forward" />
+        android:textAppearance="@android:style/TextAppearance.Material.Display1" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="10dp" />
 
     <Button
         android:id="@+id/LogOutButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:backgroundTint="#FF0000"
-        android:textAlignment="viewStart"
+        android:text="Log Out"
+        android:backgroundTint="@color/black"
         android:textSize="20sp"
         android:textAllCaps="false"
-        android:drawableEnd="@drawable/baseline_black_arrow_forward" />
+        android:textAppearance="@android:style/TextAppearance.Material.Display1" />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
 </LinearLayout>

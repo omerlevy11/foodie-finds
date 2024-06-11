@@ -64,7 +64,7 @@
                 android:layout_gravity="center">
 
                 <ImageView
-                    android:id="@+id/profileImageView"
+                    android:id="@+id/signUpImageView"
                     android:contentDescription="@string/text_image_placeholder"
                     android:layout_width="150dp"
                     android:layout_height="150dp"

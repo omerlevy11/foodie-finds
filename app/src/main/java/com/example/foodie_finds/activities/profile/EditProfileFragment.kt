@@ -10,15 +10,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresExtension
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.foodie_finds.R
+import com.example.foodie_finds.activities.login.LoginActivity
 import com.example.foodie_finds.databinding.FragmentEditProfileBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 
 class EditProfileFragment : Fragment() {
@@ -61,6 +65,7 @@ class EditProfileFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[EditProfileViewModel::class.java]
 
+        toProfileActivity()
         initFields()
         defineUpdateButtonClickListener()
         definePickImageClickListener()
@@ -85,6 +90,12 @@ class EditProfileFragment : Fragment() {
         }
     }
 
+    private fun toProfileActivity() {
+        binding.backToProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_editMyProfile_to_profile)
+        }
+    }
+
     private fun initFields() {
         viewModel.loadUser()
 
@@ -94,6 +105,7 @@ class EditProfileFragment : Fragment() {
 
         viewModel.user.observe(viewLifecycleOwner) { user ->
             binding.editTextEditUserName.setText(user.userName)
+            binding.editProfileTitleTextView.text = "@${user.userName}"
         }
 
         viewModel.selectedImageURI.observe(viewLifecycleOwner) { uri ->
