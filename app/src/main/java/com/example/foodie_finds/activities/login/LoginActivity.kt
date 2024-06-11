@@ -37,7 +37,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun logInUser() {
+        emailAddressInputLayout = findViewById(R.id.layoutLogInEmailAddress)
         emailAddressEditText = findViewById(R.id.editTextLogInEmailAddress)
+        passwordInputLayout = findViewById(R.id.layoutLogInPassword)
         passwordEditText = findViewById(R.id.editTextLogInPassword)
 
         findViewById<Button>(R.id.logInButton).setOnClickListener {
