@@ -22,7 +22,7 @@ class HomeFragment : PostsMapFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View? = super.onCreateView(inflater, container, savedInstanceState)
-        viewModel.assignPosts(PostModel.instance.getMyPosts())
-        return view
+        viewModel.assignPosts(PostModel.instance.getMyPosts());
+        return view;
     }
 }

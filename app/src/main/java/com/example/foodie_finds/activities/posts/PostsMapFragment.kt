@@ -73,8 +73,8 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
                 MarkerOptions().position(LatLng(it.latitude, it.longitude)).icon(myLocationIcon)
             )!!
         })
-//        viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
-//            map.clear()
+        viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
+            map.clear()
 //            currLocationMarker = map.addMarker(
 //                MarkerOptions().position(
 //                    LatLng(
@@ -83,13 +83,13 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
 //                    )
 //                ).icon(myLocationIcon)
 //            )!!
-//            posts.forEach { post ->
-//                val marker = map.addMarker(MarkerOptions().position(post.position.toGoogleLatLng()))
-//                if (marker != null) {
-//                    marker.tag = post.id
-//                }
-//            }
-//        })
+            posts.forEach { post ->
+                val marker = map.addMarker(MarkerOptions().position(post.position.toGoogleLatLng()))
+                if (marker != null) {
+                    marker.tag = post.id
+                }
+            }
+        })
     }
 
     override fun onPostItemClicked(postId: String) {
