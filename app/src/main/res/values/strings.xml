@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FoodieFinds</string>
     <string name="title_home">Home</string>
-    <string name="title_posts">Post</string>
+    <string name="title_my_posts">My Posts</string>
     <string name="title_profile">Profile</string>
     <string name="text_log_in">Enter your email and password</string>
     <string name="text_email">Email</string>
