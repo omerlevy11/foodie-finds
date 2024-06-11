@@ -87,19 +87,10 @@
             android:textStyle="bold"
             android:clickable="true" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="@string/text_user_name_caps"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textColor="@color/black" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutUserName"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:hint="@string/text_user_name"
             app:endIconMode="clear_text"
             app:errorEnabled="true">
@@ -113,24 +104,11 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="@string/text_email"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textColor="@color/black" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutSignUpEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="@string/text_email_hint"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_email"
             app:endIconMode="clear_text"
             app:errorEnabled="true">
 
@@ -143,23 +121,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="Passward"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textColor="@color/black" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutPassword"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:hint="@string/text_password_hint"
             app:endIconMode="clear_text"
             app:errorEnabled="true">
@@ -173,23 +138,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="Repeat Passward"
-            android:textStyle="bold"
-            android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textColor="@color/black" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutConfirmPassword"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:hint="@string/text_repeat_password"
             app:endIconMode="clear_text"
             app:errorEnabled="true">
