@@ -34,8 +34,8 @@ class PostFirebaseModel {
                     true -> {
                         val posts: MutableList<Post> = mutableListOf()
                         for (json in it.result) {
-                            val student = Post.fromJSON(json.data)
-                            posts.add(student)
+                            val post = Post.fromJSON(json.data)
+                            posts.add(post)
                         }
                         callback(posts)
                     }
@@ -64,6 +64,8 @@ class PostFirebaseModel {
         val imageRef = storage.reference.child("images/$POSTS_COLLECTION_PATH/${postId}")
         imageRef.putFile(selectedImageUri).addOnSuccessListener {
             callback()
+        }.addOnFailureListener{it->
+            Log.e("",it.message.toString())
         }
     }
 
