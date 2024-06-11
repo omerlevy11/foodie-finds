@@ -43,9 +43,6 @@ class ProfileFragment : Fragment() {
             logOutUser()
         }
 
-        root.findViewById<Button>(R.id.MyPostsButton).setOnClickListener {
-            findNavController().navigate(R.id.action_profile_to_MyPosts)
-        }
         return root
     }
 

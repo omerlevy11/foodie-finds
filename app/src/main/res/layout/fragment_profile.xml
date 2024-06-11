@@ -52,22 +52,6 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
-
-    <Button
-        android:id="@+id/MyPostsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="My Posts"
-        android:textAlignment="viewStart"
-        android:backgroundTint="@color/blue"
-        android:textSize="20sp"
-        android:textAllCaps="false"
-        android:textAppearance="@android:style/TextAppearance.Material.Display1"
-        android:drawableEnd="@drawable/ic_arrow_forward_white" />
-
-    <Space
-        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 

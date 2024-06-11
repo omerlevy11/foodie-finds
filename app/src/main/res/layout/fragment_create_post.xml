@@ -92,11 +92,13 @@
             android:id="@+id/post_submit"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="0dp"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/black"
             android:layout_weight="1"
-            android:text="@string/submit" />
+            android:text="@string/submit"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
     <Space
