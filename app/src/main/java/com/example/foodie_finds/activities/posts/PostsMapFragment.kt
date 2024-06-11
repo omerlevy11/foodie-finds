@@ -23,6 +23,9 @@ import com.example.foodie_finds.data.post.Post
 import com.example.foodie_finds.data.post.SerializableLatLng
 import com.example.foodie_finds.databinding.FragmentHomeBinding
 import com.example.foodie_finds.viewModels.LocationViewModel
+import androidx.navigation.fragment.findNavController
+import com.example.foodie_finds.ui.home.HomeFragmentDirections
+
 abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.OnPostItemClickListener,GoogleMap.OnMarkerClickListener {
 
     private var _binding: FragmentHomeBinding? = null
@@ -61,8 +64,8 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         map.setOnMarkerClickListener(this)
         map.setOnMapLongClickListener {
             val tempPost = Post("", "", "", SerializableLatLng.fromGoogleLatLng(it))
-            //   val action = CountryPageFragmentDirections.toCreatePostFragment(tempPost)
-            // findNavController().navigate(action)
+            val action = HomeFragmentDirections.actionHomeToCreatePost(tempPost)
+             findNavController().navigate(action)
         }
         locationViewModel.location.observe(viewLifecycleOwner, Observer {
             currLocationMarker?.remove()
@@ -70,23 +73,23 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
                 MarkerOptions().position(LatLng(it.latitude, it.longitude)).icon(myLocationIcon)
             )!!
         })
-        viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
-            map.clear()
-            currLocationMarker = map.addMarker(
-                MarkerOptions().position(
-                    LatLng(
-                        locationViewModel.location.value?.latitude!!,
-                        locationViewModel.location.value!!.longitude
-                    )
-                ).icon(myLocationIcon)
-            )!!
-            posts.forEach { post ->
-                val marker = map.addMarker(MarkerOptions().position(post.position.toGoogleLatLng()))
-                if (marker != null) {
-                    marker.tag = post.id
-                }
-            }
-        })
+//        viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
+//            map.clear()
+//            currLocationMarker = map.addMarker(
+//                MarkerOptions().position(
+//                    LatLng(
+//                        locationViewModel.location.value?.latitude!!,
+//                        locationViewModel.location.value!!.longitude
+//                    )
+//                ).icon(myLocationIcon)
+//            )!!
+//            posts.forEach { post ->
+//                val marker = map.addMarker(MarkerOptions().position(post.position.toGoogleLatLng()))
+//                if (marker != null) {
+//                    marker.tag = post.id
+//                }
+//            }
+//        })
     }
 
     override fun onPostItemClicked(postId: String) {

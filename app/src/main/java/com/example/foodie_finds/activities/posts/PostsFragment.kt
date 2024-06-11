@@ -1,6 +1,7 @@
 package com.example.foodie_finds.activities.posts
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +10,18 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodie_finds.R
 import com.example.foodie_finds.data.post.Post
 import com.example.foodie_finds.data.post.PostModel
 import com.example.foodie_finds.data.user.User
+import com.example.foodie_finds.ui.home.HomeFragmentDirections
 
 class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var noPostText : TextView
+    private lateinit var noPostText: TextView
     private val viewModel by activityViewModels<PostViewModel>()
     private var onPostItemClickListener: OnPostItemClickListener? = null
 
@@ -46,9 +49,11 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
             }
         }
     }
+
     private fun getLayoutResourceId(): Int {
         return R.layout.posts_list_fragment
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -89,19 +94,19 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
     override fun onPostDeleteClicked(postId: String) {
         viewModel.posts.value?.let { posts ->
             val post = posts.firstOrNull { it.id == postId }
-            if ( post != null) {
+            if (post != null) {
                 PostModel.instance.deletePost(post) {}
             }
         }
     }
 
     override fun onPostEditClicked(post: Post) {
- //       try {
-//            val action = CountryPageFragmentDirections.actionCountryPageFragmentToCreatePostFragment(post);
-//            findNavController().navigate(action)
-//        } catch (e: Exception) {
-//            e.message?.let { Log.d("PostCreate", it) }
-//        }
+              try {
+        val action = HomeFragmentDirections.actionHomeToCreatePost(post)
+        findNavController().navigate(action)
+        } catch (e: Exception) {
+            e.message?.let { Log.d("PostCreate", it) }
+        }
 
     }
 
