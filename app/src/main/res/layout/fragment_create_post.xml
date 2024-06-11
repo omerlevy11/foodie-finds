@@ -6,6 +6,24 @@
     android:orientation="vertical"
     android:padding="20dp">
 
+    <ImageView
+        android:id="@+id/selected_image"
+        android:layout_width="370dp"
+        android:layout_height="300sp"
+        android:layout_marginTop="20sp"
+        android:contentDescription="@string/select_image" />
+
+    <ProgressBar
+        android:id="@+id/create_post_progress"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:visibility="visible" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/description_input_layout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -26,19 +44,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/selected_image"
-        android:layout_width="370dp"
-        android:layout_height="300sp"
-        android:layout_marginTop="20sp"
-        android:contentDescription="@string/select_image" />
-
-    <ProgressBar
-        android:id="@+id/create_post_progress"
-        android:layout_width="370dp"
-        android:layout_height="50dp"
-        android:visibility="visible" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,10 +54,10 @@
             android:id="@+id/upload_picture_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/upload_picture"
             android:src="@android:drawable/ic_menu_camera" />
-
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/post_submit"
@@ -63,7 +68,10 @@
             android:backgroundTint="@color/black"
             android:layout_weight="1"
             android:text="@string/submit" />
-
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
 
 </LinearLayout>

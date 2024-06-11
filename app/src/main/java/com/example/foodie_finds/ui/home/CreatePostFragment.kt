@@ -9,6 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -53,6 +54,7 @@ class CreatePostFragment : Fragment() {
             R.layout.fragment_create_post, container, false
         )
 
+        backFromCreatePost()
         getDeviceLocation()
         initViews(view)
         handleSubmitButton()
@@ -68,6 +70,12 @@ class CreatePostFragment : Fragment() {
         if (addresses?.size!! == 0) {
             findNavController().popBackStack()
         }
+    }
+
+    private fun backFromCreatePost() {
+//        view.findViewById<Button>(R.id.backFromCreatePostButton).setOnClickListener {
+//            findNavController().popBackStack()
+//        }
     }
 
     private fun initViews(view: View) {
