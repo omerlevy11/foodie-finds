@@ -16,9 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_posts"
-        android:name="com.example.foodie_finds.ui.home.HomeFragment"
-        android:label="Posts Fragment"
-        tools:layout="@layout/posts_list_fragment">
+        android:name="com.example.foodie_finds.ui.home.MyPostsFragment"
+        android:label="My Posts"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_create_post"
+            app:destination="@id/navigation_create_post" />
     </fragment>
     <fragment
         android:id="@+id/navigation_create_post"

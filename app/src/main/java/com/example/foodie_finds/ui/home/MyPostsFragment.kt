@@ -10,7 +10,7 @@ import com.example.foodie_finds.activities.posts.PostsMapFragment
 import com.example.foodie_finds.data.post.PostModel
 
 
-class HomeFragment : PostsMapFragment() {
+class MyPostsFragment : PostsMapFragment() {
 
     private val viewModel by activityViewModels<PostViewModel>()
 
@@ -19,7 +19,7 @@ class HomeFragment : PostsMapFragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View? = super.onCreateView(inflater, container, savedInstanceState)
-        viewModel.assignPosts(PostModel.instance.getPosts());
+        viewModel.assignPosts(PostModel.instance.getMyPosts());
         return view;
     }
 }
