@@ -55,6 +55,7 @@ class CreatePostFragment : Fragment() {
         )
 
         backFromCreatePost()
+        setUserNameTextView()
         getDeviceLocation()
         initViews(view)
         handleSubmitButton()
@@ -73,9 +74,13 @@ class CreatePostFragment : Fragment() {
     }
 
     private fun backFromCreatePost() {
-//        view.findViewById<Button>(R.id.backFromCreatePostButton).setOnClickListener {
-//            findNavController().popBackStack()
-//        }
+        view.findViewById<ImageView>(R.id.backFromCreatePostButton).setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
+    private fun setUserNameTextView() {
+        view.findViewById<TextView>(R.id.createPostTitleTextView).text = "@${auth.currentUser?.displayName}"
     }
 
     private fun initViews(view: View) {
