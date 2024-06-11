@@ -10,10 +10,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.foodie_finds.R
 import com.example.foodie_finds.activities.login.LoginActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.storage.storage
@@ -51,14 +53,14 @@ class ProfileFragment : Fragment() {
         val imageRef = storage.reference.child("images/users/${auth.currentUser?.uid}")
 
         imageRef.downloadUrl.addOnSuccessListener { uri ->
-            Picasso.get().load(uri).into(root.findViewById<ImageView>(R.id.ProfileImageView))
+            Picasso.get().load(uri).into(root.findViewById<ImageView>(R.id.profileImageView))
         }.addOnFailureListener { exception ->
             Log.d("FirebaseStorage", "Error getting download image URI: $exception")
         }
     }
 
     private fun setUserNameTextView() {
-        root.findViewById<TextView>(R.id.UserNameTextView).text = "${auth.currentUser?.displayName}"
+        root.findViewById<TextView>(R.id.UserNameTextView).text = "@${auth.currentUser?.displayName}"
     }
 
     private fun logOutUser() {

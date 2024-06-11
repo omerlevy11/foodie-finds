@@ -203,7 +203,7 @@ class SignUpActivity : ComponentActivity() {
                         ).show()
                     } else {
                         selectedImageURI = imageUri
-                        findViewById<ImageView>(R.id.profileImageView).setImageURI(imageUri)
+                        findViewById<ImageView>(R.id.signUpImageView).setImageURI(imageUri)
                     }
                 } else {
                     Toast.makeText(this@SignUpActivity, "No Image Selected", Toast.LENGTH_SHORT)

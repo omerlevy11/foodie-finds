@@ -58,8 +58,6 @@ class CreatePostFragment : Fragment() {
         handleSubmitButton()
         handleAttachProductPicture()
 
-        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = false
-
         return view
     }
 
@@ -177,10 +175,5 @@ class CreatePostFragment : Fragment() {
         attachPictureButton.setOnClickListener {
             pickImageContract.launch("image/*")
         }
-    }
-
-    override fun onDestroyView(){
-        super.onDestroyView()
-        requireActivity().findViewById<FloatingActionButton>(R.id.fab).isVisible = true
     }
 }

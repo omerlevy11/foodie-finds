@@ -11,7 +11,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,10 +28,11 @@
             android:id="@+id/editProfileTitleTextView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginTop="3dp"
+            android:textSize="24sp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="30dp"
             android:text="@string/text_user_name"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textAppearance="@android:style/TextAppearance.Material.Display1"
             android:textColor="@color/black" />
@@ -39,36 +40,40 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+        android:layout_height="20dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_gravity="center"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:cardCornerRadius="200dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="350dp"
         app:cardBackgroundColor="@color/white">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            app:cardCornerRadius="220dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="350dp"
             android:layout_gravity="center">
 
             <ImageView
                 android:id="@+id/editProfileImageView"
                 android:contentDescription="@string/text_image_placeholder"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:src="@drawable/profile_pic_placeholder"
                 android:scaleType="centerCrop"/>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
     <TextView
         android:id="@+id/buttonEditProfilePicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/text_edit_profile_pic"
@@ -116,5 +121,5 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="60dp" />
 </LinearLayout>
