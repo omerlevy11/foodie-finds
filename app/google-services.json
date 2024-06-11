@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "844089061722",
+    "firebase_url": "https://foodie-finds-e98fe-default-rtdb.firebaseio.com",
+    "project_id": "foodie-finds-e98fe",
+    "storage_bucket": "foodie-finds-e98fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844089061722:android:73872091b1b5b978e68363",
+        "android_client_info": {
+          "package_name": "com.example.foodie_finds"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7TLdapiszaAbo1RWqJx15qC0f0GrX440"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
