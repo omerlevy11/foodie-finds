@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Patterns
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -110,7 +111,7 @@ class SignUpActivity : ComponentActivity() {
     }
 
     private fun toLoginActivity() {
-        findViewById<TextView>(R.id.backToLogIn).setOnClickListener {
+        findViewById<ImageButton>(R.id.backToLogIn).setOnClickListener {
             val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -172,7 +173,7 @@ class SignUpActivity : ComponentActivity() {
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     private fun openGallery() {
-        findViewById<Button>(R.id.buttonChoosePicture).setOnClickListener {
+        findViewById<TextView>(R.id.buttonChoosePicture).setOnClickListener {
             val intent = Intent(MediaStore.ACTION_PICK_IMAGES)
             println(intent)
             imageSelectionCallBack.launch(intent)
