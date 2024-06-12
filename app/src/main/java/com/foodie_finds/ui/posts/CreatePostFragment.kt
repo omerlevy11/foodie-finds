@@ -29,10 +29,15 @@ import com.google.firebase.auth.auth
 import com.squareup.picasso.Picasso
 import java.util.Locale
 import java.util.UUID
+import com.foodie_finds.utils.LocationApiManager
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+
 
 class CreatePostFragment : Fragment() {
     private lateinit var view: View
     private lateinit var description: TextInputEditText
+    private lateinit var locationName: TextView
     private lateinit var spinner: ProgressBar
     private lateinit var attachPictureButton: ImageButton
     private lateinit var submitButton: MaterialButton
@@ -57,7 +62,21 @@ class CreatePostFragment : Fragment() {
         handleSubmitButton()
         handleAttachProductPicture()
 
+        lifecycleScope.launch {
+            getLocationName("${args.post.position.latitude}", "${args.post.position.longitude}")
+        }
+
         return view
+    }
+
+    private suspend fun getLocationName(lat : String, lng : String) {
+        try {
+            val locationNameResult = LocationApiManager().getLocationName(lat, lng)
+            val locationString = locationNameResult.results[0].formatted_address
+            locationName.text = locationString
+        } catch (e: Exception) {
+            locationName.text = "Missing Location"
+        }
     }
 
     private fun getDeviceLocation() {
@@ -83,6 +102,7 @@ class CreatePostFragment : Fragment() {
     private fun initViews(view: View) {
         spinner = view.findViewById(R.id.create_post_progress)
         description = view.findViewById(R.id.post_description)
+        locationName = view.findViewById(R.id.createPostLocationTextView)
         attachPictureButton = view.findViewById(R.id.upload_picture_button)
         imageView = view.findViewById(R.id.selected_image)
         submitButton = view.findViewById(R.id.post_submit)
@@ -142,7 +162,7 @@ class CreatePostFragment : Fragment() {
             Post(
                 postId,
                 it.uid,
-                description.text.toString(),
+                "${locationName.text}\n${description.text.toString()}",
                 SerializableLatLng(args.post.position.latitude, args.post.position.longitude),
             )
         }
