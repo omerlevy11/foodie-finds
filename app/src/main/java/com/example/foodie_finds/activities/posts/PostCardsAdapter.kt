@@ -21,15 +21,18 @@ class PostCardsAdapter(private val posts: List<Post>, private val users: List<Us
     RecyclerView.Adapter<PostCardsAdapter.PostViewHolder>() {
     private var onPostItemClickListener: OnPostItemClickListener? = null
     private val userId = Firebase.auth.uid
+
     interface OnPostItemClickListener {
         fun onPostItemClicked(
-            postId : String
+            postId: String
         )
+
         fun onPostDeleteClicked(
-            postId : String
+            postId: String
         )
+
         fun onPostEditClicked(
-            post : Post
+            post: Post
         )
     }
 
@@ -38,8 +41,8 @@ class PostCardsAdapter(private val posts: List<Post>, private val users: List<Us
         val user: TextView = itemView.findViewById(R.id.card_user)
         val description: TextView = itemView.findViewById(R.id.card_description)
         val card: CardView = itemView.findViewById(R.id.card)
-        val deleteBtn : ImageButton = itemView.findViewById(R.id.delete_button)
-        val editBtn : ImageButton = itemView.findViewById(R.id.edit_button)
+        val deleteBtn: ImageButton = itemView.findViewById(R.id.delete_button)
+        val editBtn: ImageButton = itemView.findViewById(R.id.edit_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {

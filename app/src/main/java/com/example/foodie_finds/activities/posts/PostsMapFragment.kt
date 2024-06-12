@@ -9,6 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.foodie_finds.R
+import com.example.foodie_finds.data.post.Post
+import com.example.foodie_finds.data.post.SerializableLatLng
+import com.example.foodie_finds.databinding.FragmentHomeBinding
+import com.example.foodie_finds.ui.home.HomeFragmentDirections
+import com.example.foodie_finds.viewModels.LocationViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -18,15 +25,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.foodie_finds.R
-import com.example.foodie_finds.data.post.Post
-import com.example.foodie_finds.data.post.SerializableLatLng
-import com.example.foodie_finds.databinding.FragmentHomeBinding
-import com.example.foodie_finds.viewModels.LocationViewModel
-import androidx.navigation.fragment.findNavController
-import com.example.foodie_finds.ui.home.HomeFragmentDirections
 
-abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.OnPostItemClickListener,GoogleMap.OnMarkerClickListener {
+abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,
+    PostsFragment.OnPostItemClickListener, GoogleMap.OnMarkerClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -46,14 +47,22 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         val mapFragment =
             childFragmentManager.findFragmentById(R.id.map_fragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        myLocationIcon = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(resources, R.drawable.my_location),200,200,false))
+        myLocationIcon = BitmapDescriptorFactory.fromBitmap(
+            Bitmap.createScaledBitmap(
+                BitmapFactory.decodeResource(
+                    resources,
+                    R.drawable.my_location
+                ), 200, 200, false
+            )
+        )
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.customPostsFragment.getFragment<PostsFragment>().setOnPostItemClickListener(this)
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -65,7 +74,7 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         map.setOnMapLongClickListener {
             val tempPost = Post("", "", "", SerializableLatLng.fromGoogleLatLng(it))
             val action = HomeFragmentDirections.actionHomeToCreatePost(tempPost)
-             findNavController().navigate(action)
+            findNavController().navigate(action)
         }
         locationViewModel.location.observe(viewLifecycleOwner, Observer {
             currLocationMarker?.remove()
@@ -75,17 +84,11 @@ abstract class PostsMapFragment : Fragment(), OnMapReadyCallback,PostsFragment.O
         })
         viewModel.posts.observe(viewLifecycleOwner, Observer { posts ->
             map.clear()
-//            currLocationMarker = map.addMarker(
-//                MarkerOptions().position(
-//                    LatLng(
-//                        locationViewModel.location.value?.latitude!!,
-//                        locationViewModel.location.value!!.longitude
-//                    )
-//                ).icon(myLocationIcon)
-//            )!!
+
             posts.forEach { post ->
                 val bd = BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)
-                val marker = map.addMarker(MarkerOptions().icon(bd).position(post.position.toGoogleLatLng()))
+                val marker =
+                    map.addMarker(MarkerOptions().icon(bd).position(post.position.toGoogleLatLng()))
                 if (marker != null) {
                     marker.tag = post.id
                 }

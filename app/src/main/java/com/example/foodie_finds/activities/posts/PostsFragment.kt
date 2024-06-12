@@ -85,7 +85,6 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
         onPostItemClickListener = listener
     }
 
-    // Call the listener when an item is clicked
     override fun onPostItemClicked(postId: String) {
         onPostItemClickListener?.onPostItemClicked(postId)
     }
@@ -104,7 +103,7 @@ class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
         val action = HomeFragmentDirections.actionHomeToCreatePost(post)
         findNavController().navigate(action)
         } catch (e: Exception) {
-            e.message?.let { Log.d("PostCreate", it) }
+            e.message?.let { Log.d("PostEdit", it) }
         }
 
     }

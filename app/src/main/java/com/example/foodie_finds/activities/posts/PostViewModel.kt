@@ -11,7 +11,7 @@ class PostViewModel : ViewModel() {
     var posts: LiveData<MutableList<Post>> = MutableLiveData();
     var users: LiveData<MutableList<User>> = MutableLiveData();
 
-    fun assignPosts (postsList : LiveData<MutableList<Post>>) {
+    fun assignPosts(postsList: LiveData<MutableList<Post>>) {
         posts = postsList;
         users = UserModel.instance.getAllUsers();
     }

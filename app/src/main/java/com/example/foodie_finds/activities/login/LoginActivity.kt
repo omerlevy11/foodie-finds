@@ -31,7 +31,6 @@ class LoginActivity : AppCompatActivity() {
             loggedInHandler()
         }
 
-        toForgotPasswordActivity()
         toSignUpActivity()
         logInUser()
     }
@@ -69,14 +68,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun toForgotPasswordActivity() {
-//        findViewById<TextView>(R.id.forgotPassTextView).setOnClickListener {
-//            val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-    }
-
     private fun loggedInHandler() {
         Toast.makeText(
             this@LoginActivity,
@@ -92,7 +83,6 @@ class LoginActivity : AppCompatActivity() {
         email: String,
         password: String
     ): Boolean {
-        // Basic checks
         if (email.isEmpty()) {
             emailAddressInputLayout.error = "Email cannot be empty"
             return false
