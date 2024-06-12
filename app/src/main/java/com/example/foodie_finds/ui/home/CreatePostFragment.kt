@@ -9,26 +9,23 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.foodie_finds.R
+import com.example.foodie_finds.data.post.Post
+import com.example.foodie_finds.data.post.PostModel
+import com.example.foodie_finds.data.post.SerializableLatLng
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.example.foodie_finds.data.post.Post
-import com.example.foodie_finds.data.post.PostModel
-import com.example.foodie_finds.data.post.SerializableLatLng
 import com.squareup.picasso.Picasso
 import java.util.Locale
 import java.util.UUID
@@ -47,8 +44,7 @@ class CreatePostFragment : Fragment() {
     private val args: CreatePostFragmentArgs by navArgs()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         view = inflater.inflate(
             R.layout.fragment_create_post, container, false
@@ -80,7 +76,8 @@ class CreatePostFragment : Fragment() {
     }
 
     private fun setUserNameTextView() {
-        view.findViewById<TextView>(R.id.createPostTitleTextView).text = "@${auth.currentUser?.displayName}"
+        view.findViewById<TextView>(R.id.createPostTitleTextView).text =
+            "@${auth.currentUser?.displayName}"
     }
 
     private fun initViews(view: View) {

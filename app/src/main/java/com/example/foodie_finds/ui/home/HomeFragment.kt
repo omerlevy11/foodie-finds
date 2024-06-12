@@ -15,8 +15,7 @@ class HomeFragment : PostsMapFragment() {
     private val viewModel by activityViewModels<PostViewModel>()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view: View? = super.onCreateView(inflater, container, savedInstanceState)
         viewModel.assignPosts(PostModel.instance.getPosts());
