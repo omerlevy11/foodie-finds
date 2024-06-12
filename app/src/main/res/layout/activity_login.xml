@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="80dp"/>
+        android:layout_height="80dp" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -24,7 +24,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/logInTitleTextView"
@@ -35,12 +35,11 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="5dp"/>
+        android:layout_height="5dp" />
 
     <TextView
         android:id="@+id/logInTextView"
@@ -50,12 +49,11 @@
         android:text="@string/text_log_in"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="15sp"
-        />
+        android:textSize="15sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp"/>
+        android:layout_height="20dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutLogInEmailAddress"
@@ -92,36 +90,28 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="10dp" />
 
     <Button
         android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_in"
         android:backgroundTint="@color/blue"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        android:text="@string/log_in"
+        android:textAllCaps="false"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"
-        android:textAllCaps="false" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/moveToSignUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_sign_up_link"
         android:backgroundTint="@color/black"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        android:text="@string/button_sign_up_link"
+        android:textAllCaps="false"
         android:textAppearance="@android:style/TextAppearance.Material.Display1"
-        android:textAllCaps="false" />
-
-    <TextView
-        android:id="@+id/forgotPassTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_forgot_password_link"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
 </LinearLayout>

@@ -13,19 +13,19 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <ImageButton
             android:id="@+id/backToLogIn"
-            android:contentDescription="@string/text_back_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@color/white"
+            android:contentDescription="@string/text_back_icon"
             android:src="@drawable/ic_black_arrow_back" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="10dp" />
 
         <TextView
             android:id="@+id/titleTextView"
@@ -42,34 +42,34 @@
             android:id="@+id/signUpTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:paddingTop="20dp"
             android:paddingBottom="15dp"
             android:text="@string/text_create_account"
             android:textAlignment="center"
             android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <androidx.cardview.widget.CardView
-            android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:cardCornerRadius="250dp"
-            app:cardBackgroundColor="@color/white">
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="250dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                app:cardCornerRadius="250dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:cardCornerRadius="250dp">
 
                 <ImageView
                     android:id="@+id/signUpImageView"
-                    android:contentDescription="@string/text_image_placeholder"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/profile_pic_placeholder"
-                    android:scaleType="centerCrop"/>
+                    android:contentDescription="@string/text_image_placeholder"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile_pic_placeholder" />
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
 
@@ -77,15 +77,15 @@
             android:id="@+id/buttonChoosePicture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:clickable="true"
             android:paddingTop="5dp"
             android:paddingBottom="15dp"
             android:text="@string/text_choose_profile_pic"
             android:textAlignment="center"
             android:textAppearance="@android:style/TextAppearance.Material.Display1"
             android:textColor="#427CDC"
-            android:textStyle="bold"
-            android:clickable="true" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutUserName"
@@ -157,7 +157,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/signUpButton"
@@ -165,10 +165,10 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             android:text="@string/sign_up"
-            android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textAllCaps="false"
             android:textAppearance="@android:style/TextAppearance.Material.Display1"
-            android:textAllCaps="false" />
+            android:textColor="@color/white"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
