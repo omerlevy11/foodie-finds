@@ -1,4 +1,5 @@
 package com.example.foodie_finds.data.user
+
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete

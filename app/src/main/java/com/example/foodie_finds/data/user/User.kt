@@ -9,8 +9,7 @@ import com.google.firebase.firestore.FieldValue
 
 @Entity
 class User(
-    @PrimaryKey
-    val id: String,
+    @PrimaryKey val id: String,
     val userName: String,
     var profileImage: String? = null,
     var lastUpdated: Long? = null,
@@ -18,15 +17,16 @@ class User(
     companion object {
         var lastUpdated: Long
             get() {
-                return FoodieFindsApp.Globals
-                    .appContext?.getSharedPreferences("TAG", Context.MODE_PRIVATE)
-                    ?.getLong(USER_LAST_UPDATED, 0) ?: 0
+                return FoodieFindsApp.Globals.appContext?.getSharedPreferences(
+                        "TAG",
+                        Context.MODE_PRIVATE
+                    )?.getLong(USER_LAST_UPDATED, 0) ?: 0
             }
             set(value) {
-                FoodieFindsApp.Globals
-                    ?.appContext
-                    ?.getSharedPreferences("TAG", Context.MODE_PRIVATE)?.edit()
-                    ?.putLong(USER_LAST_UPDATED, value)?.apply()
+                FoodieFindsApp.Globals?.appContext?.getSharedPreferences(
+                        "TAG",
+                        Context.MODE_PRIVATE
+                    )?.edit()?.putLong(USER_LAST_UPDATED, value)?.apply()
             }
 
         const val ID_KEY = "id"

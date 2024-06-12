@@ -3,15 +3,15 @@ package com.example.foodie_finds.data.post
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import java.util.concurrent.Executors
+import com.example.foodie_finds.data.AppLocalDatabase
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
-import com.example.foodie_finds.data.AppLocalDatabase
+import java.util.concurrent.Executors
+
 class PostModel private constructor() {
 
     enum class LoadingState {
-        LOADING,
-        LOADED
+        LOADING, LOADED
     }
 
     private val database = AppLocalDatabase.db
@@ -57,8 +57,7 @@ class PostModel private constructor() {
                     }
 
                     post.timestamp?.let {
-                        if (time < it)
-                            time = post.timestamp ?: System.currentTimeMillis()
+                        if (time < it) time = post.timestamp ?: System.currentTimeMillis()
                     }
                     Post.lastUpdated = time
                 }

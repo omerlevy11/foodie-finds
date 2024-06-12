@@ -27,8 +27,8 @@ class UserFirebaseModel {
 
     fun getAllUsers(since: Long, callback: (List<User>) -> Unit) {
         db.collection(USERS_COLLECTION_PATH)
-            .whereGreaterThanOrEqualTo(User.LAST_UPDATED_KEY, Timestamp(since, 0))
-            .get().addOnCompleteListener {
+            .whereGreaterThanOrEqualTo(User.LAST_UPDATED_KEY, Timestamp(since, 0)).get()
+            .addOnCompleteListener {
                 when (it.isSuccessful) {
                     true -> {
                         val users: MutableList<User> = mutableListOf()
@@ -45,9 +45,7 @@ class UserFirebaseModel {
     }
 
     fun getImage(imageId: String, callback: (Uri) -> Unit) {
-        storage.reference.child("images/$USERS_COLLECTION_PATH/$imageId")
-            .downloadUrl
-            .addOnSuccessListener { uri ->
+        storage.reference.child("images/$USERS_COLLECTION_PATH/$imageId").downloadUrl.addOnSuccessListener { uri ->
                 callback(uri)
             }
     }
@@ -61,8 +59,7 @@ class UserFirebaseModel {
     }
 
     fun updateUser(user: User?, callback: () -> Unit) {
-        db.collection(USERS_COLLECTION_PATH)
-            .document(user!!.id).update(user.updateJson)
+        db.collection(USERS_COLLECTION_PATH).document(user!!.id).update(user.updateJson)
             .addOnSuccessListener {
                 callback()
             }.addOnFailureListener {
@@ -71,8 +68,7 @@ class UserFirebaseModel {
     }
 
     fun addUser(user: User, callback: () -> Unit) {
-        db.collection(USERS_COLLECTION_PATH).document(user.id).set(user.json)
-            .addOnSuccessListener {
+        db.collection(USERS_COLLECTION_PATH).document(user.id).set(user.json).addOnSuccessListener {
                 callback()
             }
     }

@@ -43,8 +43,7 @@ class UserModel private constructor() {
                 }
 
                 user.lastUpdated?.let {
-                    if (time < it)
-                        time = user.lastUpdated ?: System.currentTimeMillis()
+                    if (time < it) time = user.lastUpdated ?: System.currentTimeMillis()
                 }
                 User.lastUpdated = time
             }

@@ -5,10 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
+import com.example.foodie_finds.FoodieFindsApp
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
-import com.example.foodie_finds.FoodieFindsApp
 import java.io.Serializable
 
 data class SerializableLatLng(val latitude: Double, val longitude: Double) : Serializable {
@@ -41,12 +41,10 @@ class LatLngConverter {
 
 @Entity
 data class Post(
-    @PrimaryKey
-    val id: String,
+    @PrimaryKey val id: String,
     val userId: String,
     val description: String,
-    @TypeConverters(LatLngConverter::class)
-    val position: SerializableLatLng, // Use SerializableLatLng instead of LatLng
+    @TypeConverters(LatLngConverter::class) val position: SerializableLatLng,
     var isDeleted: Boolean = false,
     var photo: String? = null,
     var timestamp: Long? = null,
@@ -55,15 +53,16 @@ data class Post(
     companion object {
         var lastUpdated: Long
             get() {
-                return FoodieFindsApp.Globals
-                    .appContext?.getSharedPreferences("TAG", Context.MODE_PRIVATE)
-                    ?.getLong(POST_LAST_UPDATED, 0) ?: 0
+                return FoodieFindsApp.Globals.appContext?.getSharedPreferences(
+                    "TAG",
+                    Context.MODE_PRIVATE
+                )?.getLong(POST_LAST_UPDATED, 0) ?: 0
             }
             set(value) {
-                FoodieFindsApp.Globals
-                    ?.appContext
-                    ?.getSharedPreferences("TAG", Context.MODE_PRIVATE)?.edit()
-                    ?.putLong(POST_LAST_UPDATED, value)?.apply()
+                FoodieFindsApp.Globals?.appContext?.getSharedPreferences(
+                    "TAG",
+                    Context.MODE_PRIVATE
+                )?.edit()?.putLong(POST_LAST_UPDATED, value)?.apply()
             }
 
         const val ID_KEY = "id"

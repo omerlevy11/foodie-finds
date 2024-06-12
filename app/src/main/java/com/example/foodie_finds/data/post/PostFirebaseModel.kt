@@ -64,8 +64,8 @@ class PostFirebaseModel {
         val imageRef = storage.reference.child("images/$POSTS_COLLECTION_PATH/${postId}")
         imageRef.putFile(selectedImageUri).addOnSuccessListener {
             callback()
-        }.addOnFailureListener{it->
-            Log.e("",it.message.toString())
+        }.addOnFailureListener { it ->
+            Log.e("", it.message.toString())
         }
     }
 

@@ -6,11 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.foodie_finds.FoodieFindsApp
+import com.example.foodie_finds.data.post.LatLngConverter
+import com.example.foodie_finds.data.post.Post
 import com.example.foodie_finds.data.post.PostDAO
 import com.example.foodie_finds.data.user.User
 import com.example.foodie_finds.data.user.UserDAO
-import com.example.foodie_finds.data.post.LatLngConverter
-import com.example.foodie_finds.data.post.Post
 
 @Database(entities = [User::class, Post::class], version = 7, exportSchema = true)
 @TypeConverters(LatLngConverter::class)
@@ -25,10 +25,7 @@ object AppLocalDatabase {
             ?: throw IllegalStateException("Application context not available")
 
         Room.databaseBuilder(
-            context,
-            AppLocalDbRepository::class.java,
-            "foodie-finds"
-        ).fallbackToDestructiveMigration()
-            .build()
+            context, AppLocalDbRepository::class.java, "foodie-finds"
+        ).fallbackToDestructiveMigration().build()
     }
 }
