@@ -77,6 +77,18 @@ class CreatePostFragment : Fragment() {
         } catch (e: Exception) {
             locationName.text = "Missing Location"
         }
+
+        if (args.post.id.isNotEmpty()) {
+            val splitDesc = args.post.description.split("${locationName.text as String}\n")
+
+            if (splitDesc.size > 1) {
+                description.setText(splitDesc[1])
+            } else {
+                description.setText(args.post.description)
+            }
+        } else {
+            spinner.visibility = GONE
+        }
     }
 
     private fun getDeviceLocation() {
@@ -106,13 +118,6 @@ class CreatePostFragment : Fragment() {
         attachPictureButton = view.findViewById(R.id.upload_picture_button)
         imageView = view.findViewById(R.id.selected_image)
         submitButton = view.findViewById(R.id.post_submit)
-
-
-        if (args.post.id.isNotEmpty()) {
-            description.setText(args.post.description)
-        } else {
-            spinner.visibility = GONE
-        }
 
         PostModel.instance.getPostImage(args.post.id) {
             attachedPicture = it
