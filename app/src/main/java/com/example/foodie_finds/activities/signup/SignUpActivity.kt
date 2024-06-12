@@ -17,8 +17,9 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.annotation.RequiresExtension
-import com.example.foodie_finds.activities.MainActivity
 import com.example.foodie_finds.R
+import com.example.foodie_finds.activities.MainActivity
+import com.example.foodie_finds.activities.login.LoginActivity
 import com.example.foodie_finds.data.user.User
 import com.example.foodie_finds.data.user.UserModel
 import com.google.android.material.textfield.TextInputEditText
@@ -26,8 +27,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.auth
-import com.example.foodie_finds.ui.home.HomeFragment
-import com.example.foodie_finds.activities.login.LoginActivity
 
 class SignUpActivity : ComponentActivity() {
 
@@ -78,32 +77,25 @@ class SignUpActivity : ComponentActivity() {
                 auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
                     val authenticatedUser = it.user!!
 
-                    val profileUpdates = UserProfileChangeRequest.Builder()
-                        .setPhotoUri(selectedImageURI)
-                        .setDisplayName(userName)
-                        .build()
+                    val profileUpdates =
+                        UserProfileChangeRequest.Builder().setPhotoUri(selectedImageURI)
+                            .setDisplayName(userName).build()
 
                     authenticatedUser.updateProfile(profileUpdates)
 
                     UserModel.instance.addUser(
-                        User(authenticatedUser.uid, userName),
-                        selectedImageURI!!
+                        User(authenticatedUser.uid, userName), selectedImageURI!!
                     ) {
                         Toast.makeText(
-                            this@SignUpActivity,
-                            "Register Successful",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
+                            this@SignUpActivity, "Register Successful", Toast.LENGTH_SHORT
+                        ).show()
                         val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
                 }.addOnFailureListener {
                     Toast.makeText(
-                        this@SignUpActivity,
-                        "Register Failed, " + it.message,
-                        Toast.LENGTH_SHORT
+                        this@SignUpActivity, "Register Failed, " + it.message, Toast.LENGTH_SHORT
                     ).show()
                 }
             }
@@ -119,10 +111,7 @@ class SignUpActivity : ComponentActivity() {
     }
 
     private fun validateUserRegistration(
-        userName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
+        userName: String, email: String, password: String, confirmPassword: String
     ): Boolean {
         if (userName.isEmpty()) {
             userNameInputLayout.error = "User name cannot be empty"
@@ -162,9 +151,7 @@ class SignUpActivity : ComponentActivity() {
         }
         if (selectedImageURI == null) {
             Toast.makeText(
-                this@SignUpActivity,
-                "You must select Profile Image",
-                Toast.LENGTH_SHORT
+                this@SignUpActivity, "You must select Profile Image", Toast.LENGTH_SHORT
             ).show()
             return false
         }
@@ -197,9 +184,7 @@ class SignUpActivity : ComponentActivity() {
                     val maxCanvasSize = 5 * 1024 * 1024 // 5MB
                     if (imageSize > maxCanvasSize) {
                         Toast.makeText(
-                            this@SignUpActivity,
-                            "Selected image is too large",
-                            Toast.LENGTH_SHORT
+                            this@SignUpActivity, "Selected image is too large", Toast.LENGTH_SHORT
                         ).show()
                     } else {
                         selectedImageURI = imageUri

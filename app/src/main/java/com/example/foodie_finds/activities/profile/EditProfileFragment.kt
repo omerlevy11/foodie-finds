@@ -10,19 +10,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresExtension
-import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.foodie_finds.R
-import com.example.foodie_finds.activities.login.LoginActivity
 import com.example.foodie_finds.databinding.FragmentEditProfileBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 
 class EditProfileFragment : Fragment() {
@@ -38,9 +34,7 @@ class EditProfileFragment : Fragment() {
                 val maxCanvasSize = 5 * 1024 * 1024 // 5MB
                 if (imageSize > maxCanvasSize) {
                     Toast.makeText(
-                        requireContext(),
-                        "Selected image is too large",
-                        Toast.LENGTH_SHORT
+                        requireContext(), "Selected image is too large", Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     viewModel.selectedImageURI.postValue(imageUri)
@@ -57,8 +51,7 @@ class EditProfileFragment : Fragment() {
 
     @RequiresExtension(extension = Build.VERSION_CODES.R, version = 2)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -113,8 +106,7 @@ class EditProfileFragment : Fragment() {
         }
 
         viewModel.userNameError.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty())
-                binding.editTextEditUserName.error = it
+            if (it.isNotEmpty()) binding.editTextEditUserName.error = it
         }
     }
 
