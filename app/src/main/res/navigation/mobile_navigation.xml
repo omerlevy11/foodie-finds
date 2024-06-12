@@ -7,37 +7,37 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.foodie_finds.ui.HomeFragment"
+        android:name="com.foodie_finds.ui.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/posts_with_map_fragment">
         <action
             android:id="@+id/action_home_to_create_post"
             app:destination="@id/navigation_create_post" />
     </fragment>
     <fragment
         android:id="@+id/navigation_posts"
-        android:name="com.example.foodie_finds.ui.MyPostsFragment"
+        android:name="com.foodie_finds.ui.MyPostsFragment"
         android:label="My Posts"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/posts_with_map_fragment">
         <action
             android:id="@+id/action_home_to_create_post"
             app:destination="@id/navigation_create_post" />
     </fragment>
     <fragment
         android:id="@+id/navigation_create_post"
-        android:name="com.example.foodie_finds.ui.posts.CreatePostFragment"
+        android:name="com.foodie_finds.ui.posts.CreatePostFragment"
         android:label="CreatePostFragment"
         tools:layout="@layout/fragment_create_post">
         <argument
             android:name="post"
-            app:argType="com.example.foodie_finds.data.post.Post" />
+            app:argType="com.foodie_finds.data.post.Post" />
         <action
             android:id="@+id/action_create_post_to_home"
             app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.foodie_finds.ui.ProfileFragment"
+        android:name="com.foodie_finds.ui.ProfileFragment"
         android:label="My Profile"
         tools:layout="@layout/fragment_profile">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/editMyProfile"
-        android:name="com.example.foodie_finds.ui.editProfile.EditProfileFragment"
+        android:name="com.foodie_finds.ui.editProfile.EditProfileFragment"
         android:label="edit my profile"
         tools:layout="@layout/fragment_edit_profile">
         <action

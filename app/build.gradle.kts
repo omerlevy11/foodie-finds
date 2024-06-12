@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.foodie_finds"
+    namespace = "com.foodie_finds"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.foodie_finds"
+        applicationId = "com.foodie_finds"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
