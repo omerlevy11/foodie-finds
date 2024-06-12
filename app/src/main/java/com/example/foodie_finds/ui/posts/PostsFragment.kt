@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.posts
+package com.example.foodie_finds.ui.posts
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +17,7 @@ import com.example.foodie_finds.R
 import com.example.foodie_finds.data.post.Post
 import com.example.foodie_finds.data.post.PostModel
 import com.example.foodie_finds.data.user.User
-import com.example.foodie_finds.ui.home.HomeFragmentDirections
+import com.example.foodie_finds.ui.HomeFragmentDirections
 
 class PostsFragment : Fragment(), PostCardsAdapter.OnPostItemClickListener {
     private lateinit var recyclerView: RecyclerView

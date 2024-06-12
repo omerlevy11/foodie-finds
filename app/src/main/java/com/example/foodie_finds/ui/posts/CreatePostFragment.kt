@@ -1,4 +1,4 @@
-package com.example.foodie_finds.ui.home
+package com.example.foodie_finds.ui.posts
 
 import android.location.Geocoder
 import android.net.Uri

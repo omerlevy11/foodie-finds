@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.posts
+package com.example.foodie_finds.ui.posts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

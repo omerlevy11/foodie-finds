@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.posts
+package com.example.foodie_finds.ui.posts
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -14,7 +14,7 @@ import com.example.foodie_finds.R
 import com.example.foodie_finds.data.post.Post
 import com.example.foodie_finds.data.post.SerializableLatLng
 import com.example.foodie_finds.databinding.FragmentHomeBinding
-import com.example.foodie_finds.ui.home.HomeFragmentDirections
+import com.example.foodie_finds.ui.HomeFragmentDirections
 import com.example.foodie_finds.viewModels.LocationViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

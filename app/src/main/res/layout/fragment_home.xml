@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.HomeFragment">
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/custom_posts_fragment"
-        android:name="com.example.foodie_finds.activities.posts.PostsFragment"
+        android:name="com.example.foodie_finds.ui.posts.PostsFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"

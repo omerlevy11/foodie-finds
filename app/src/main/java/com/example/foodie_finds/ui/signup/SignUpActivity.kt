@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.signup
+package com.example.foodie_finds.ui.signup
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -18,8 +18,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.annotation.RequiresExtension
 import com.example.foodie_finds.R
-import com.example.foodie_finds.activities.MainActivity
-import com.example.foodie_finds.activities.login.LoginActivity
+import com.example.foodie_finds.ui.MainActivity
+import com.example.foodie_finds.ui.login.LoginActivity
 import com.example.foodie_finds.data.user.User
 import com.example.foodie_finds.data.user.UserModel
 import com.google.android.material.textfield.TextInputEditText

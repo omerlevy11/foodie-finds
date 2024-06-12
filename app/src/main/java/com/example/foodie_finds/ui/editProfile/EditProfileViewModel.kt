@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.profile
+package com.example.foodie_finds.ui.editProfile
 
 import android.net.Uri
 import androidx.lifecycle.LiveData

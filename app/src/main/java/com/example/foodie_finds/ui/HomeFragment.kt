@@ -1,12 +1,12 @@
-package com.example.foodie_finds.ui.home
+package com.example.foodie_finds.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.foodie_finds.activities.posts.PostViewModel
-import com.example.foodie_finds.activities.posts.PostsMapFragment
+import com.example.foodie_finds.ui.posts.PostViewModel
+import com.example.foodie_finds.ui.posts.PostsMapFragment
 import com.example.foodie_finds.data.post.PostModel
 
 

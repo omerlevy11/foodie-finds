@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities.login
+package com.example.foodie_finds.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.foodie_finds.R
-import com.example.foodie_finds.activities.signup.SignUpActivity
-import com.example.foodie_finds.activities.MainActivity
+import com.example.foodie_finds.ui.signup.SignUpActivity
+import com.example.foodie_finds.ui.MainActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.Firebase

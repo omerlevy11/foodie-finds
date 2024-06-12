@@ -1,4 +1,4 @@
-package com.example.foodie_finds.activities
+package com.example.foodie_finds.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
