@@ -1,4 +1,4 @@
-package com.example.foodie_finds
+package com.foodie_finds
 
 import org.junit.Test
 
